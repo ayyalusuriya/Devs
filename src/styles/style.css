@@ -1,0 +1,514 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  body{
+    overflow-x:hidden;
+    font-family:Arial,sans-serif;
+    background:black;
+    color:white;
+  }
+  
+  /* BACKGROUND */
+  
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+  
+    background:
+    radial-gradient(circle at top left,#ff0080,transparent 30%),
+    radial-gradient(circle at bottom right,#ff4da6,transparent 30%),
+    radial-gradient(circle at center,#ff66cc33,transparent 40%);
+  
+    animation:bgMove 10s infinite alternate;
+  
+    z-index:-2;
+  }
+  
+  @keyframes bgMove{
+  
+    from{
+      transform:scale(1);
+    }
+  
+    to{
+      transform:scale(1.2);
+    }
+  }
+  
+  /* PAGE */
+  
+  .page{
+    height:100vh;
+  
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  
+    gap:40px;
+  
+    text-align:center;
+  
+    padding:20px;
+  }
+  
+  /* TITLES */
+  
+  .page h1{
+  
+    font-size:70px;
+  
+    text-shadow:
+    0 0 20px #ff0080,
+    0 0 60px #ff4da6;
+  
+    animation:glow 2s infinite alternate;
+  }
+  
+  @keyframes glow{
+  
+    from{
+      transform:scale(1);
+    }
+  
+    to{
+      transform:scale(1.08);
+    }
+  }
+  
+  .page h2{
+  
+    max-width:700px;
+  
+    line-height:1.5;
+  
+    font-size:35px;
+  }
+  
+  /* BUTTONS */
+  
+  .btns{
+    display:flex;
+    gap:40px;
+  }
+  
+  .yesBtn{
+  
+    padding:18px 45px;
+  
+    border:none;
+    border-radius:60px;
+  
+    font-size:24px;
+  
+    cursor:pointer;
+  
+    color:white;
+  
+    background:
+    linear-gradient(
+      45deg,
+      #ff0080,
+      #ff4da6,
+      #ff66cc
+    );
+  
+    background-size:300% 300%;
+  
+    animation:gradientMove 3s infinite;
+  
+    box-shadow:
+    0 0 20px #ff0080,
+    0 0 50px #ff4da6;
+  
+    transition:0.3s;
+  }
+  
+  .yesBtn:hover{
+    transform:scale(1.15);
+  }
+  
+  @keyframes gradientMove{
+  
+    0%{
+      background-position:0% 50%;
+    }
+  
+    50%{
+      background-position:100% 50%;
+    }
+  
+    100%{
+      background-position:0% 50%;
+    }
+  }
+  
+  .noBtn{
+  
+    padding:18px 45px;
+  
+    border:none;
+  
+    border-radius:60px;
+  
+    font-size:24px;
+  
+    cursor:pointer;
+  
+    background:#222;
+  
+    color:white;
+  }
+  
+  /* HERO */
+  
+  .hero{
+  
+    height:100vh;
+  
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  
+    gap:20px;
+  
+    text-align:center;
+  }
+  
+  .hero h1{
+  
+    font-size:90px;
+  
+    text-shadow:
+    0 0 20px #ff0080,
+    0 0 70px #ff4da6;
+  
+    animation:heroZoom 3s infinite alternate;
+  }
+  
+  @keyframes heroZoom{
+  
+    from{
+      transform:scale(1);
+    }
+  
+    to{
+      transform:scale(1.1);
+    }
+  }
+  
+  .hero p{
+    font-size:30px;
+  }
+  
+  /* PHOTOS */
+  
+  .photos{
+    padding:120px 20px;
+    text-align:center;
+  }
+  
+  .photos h2{
+    font-size:60px;
+    margin-bottom:50px;
+  }
+  
+  .grid{
+  
+    display:grid;
+  
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+  
+    gap:30px;
+  }
+  
+  .card{
+  
+    overflow:hidden;
+  
+    border-radius:30px;
+  
+    cursor:pointer;
+  
+    transition:0.5s;
+  
+    height:420px;
+  
+    animation:floatCard 4s infinite ease-in-out;
+  }
+  
+  .card:hover{
+  
+    transform:
+    scale(1.05)
+    rotate(2deg);
+  
+    box-shadow:
+    0 0 30px #ff4da6,
+    0 0 90px #ff0080;
+  }
+  
+  .photoImg{
+  
+    width:100%;
+    height:100%;
+  
+    object-fit:cover;
+  
+    transition:0.5s;
+  }
+  
+  .card:hover .photoImg{
+    transform:scale(1.12);
+  }
+  
+  @keyframes floatCard{
+  
+    0%{
+      transform:translateY(0px);
+    }
+  
+    50%{
+      transform:translateY(-20px);
+    }
+  
+    100%{
+      transform:translateY(0px);
+    }
+  }
+  
+  /* FULL SCREEN IMAGE */
+  
+  .fullscreen{
+  
+    position:fixed;
+  
+    inset:0;
+  
+    background:
+    rgba(0,0,0,0.95);
+  
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  
+    z-index:99999;
+  
+    animation:fadeIn 0.5s;
+  }
+  
+  .fullscreenImg{
+  
+    width:auto;
+    height:auto;
+  
+    max-width:95vw;
+    max-height:95vh;
+  
+    object-fit:contain;
+  
+    border-radius:20px;
+  
+    box-shadow:
+    0 0 40px #ff0080,
+    0 0 100px #ff4da6;
+  
+    animation:zoomIn 0.5s;
+  }
+  
+  @keyframes fadeIn{
+  
+    from{
+      opacity:0;
+    }
+  
+    to{
+      opacity:1;
+    }
+  }
+  
+  @keyframes zoomIn{
+  
+    from{
+      transform:scale(0.5);
+    }
+  
+    to{
+      transform:scale(1);
+    }
+  }
+  
+  /* VIDEOS */
+  
+  .video{
+    padding:120px 20px;
+    text-align:center;
+  }
+  
+  .video h2{
+    font-size:60px;
+    margin-bottom:50px;
+  }
+  
+  .videoGrid{
+  
+    display:grid;
+  
+    grid-template-columns:
+    repeat(auto-fit,minmax(350px,1fr));
+  
+    gap:40px;
+  }
+  
+  .videoBox{
+  
+    overflow:hidden;
+  
+    border-radius:30px;
+  
+    transition:0.5s;
+  
+    background:
+    rgba(255,255,255,0.08);
+  
+    backdrop-filter:blur(10px);
+  
+    box-shadow:
+    0 0 20px rgba(255,0,128,0.3);
+  }
+  
+  .videoBox:hover{
+  
+    transform:
+    scale(1.05)
+    rotate(1deg);
+  
+    box-shadow:
+    0 0 40px #ff0080,
+    0 0 100px #ff4da6;
+  }
+  
+  .realVideo{
+  
+    width:100%;
+    height:500px;
+  
+    object-fit:cover;
+  
+    border-radius:30px;
+  
+    background:black;
+  }
+  
+  /* FINAL */
+  
+  .final{
+  
+    height:100vh;
+  
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  
+    text-align:center;
+  }
+  
+  .final h1{
+  
+    font-size:80px;
+  
+    background:
+    linear-gradient(
+      45deg,
+      #ff0080,
+      #ff4da6,
+      white
+    );
+  
+    -webkit-background-clip:text;
+  
+    color:transparent;
+  
+    animation:finalGlow 2s infinite alternate;
+  }
+  
+  @keyframes finalGlow{
+  
+    from{
+      transform:scale(1);
+    }
+  
+    to{
+      transform:scale(1.1);
+    }
+  }
+  
+  /* BUTTERFLIES */
+  
+  .butterfly{
+  
+    position:fixed;
+  
+    font-size:35px;
+  
+    z-index:999;
+  
+    pointer-events:none;
+  
+    animation:
+    fly linear infinite,
+    flap 0.8s infinite alternate;
+  }
+  
+  .b1{
+    top:10%;
+    left:-10%;
+    animation-duration:12s;
+  }
+  
+  .b2{
+    top:40%;
+    left:-20%;
+    animation-duration:18s;
+  }
+  
+  .b3{
+    top:70%;
+    left:-15%;
+    animation-duration:22s;
+  }
+  
+  @keyframes flap{
+  
+    from{
+      transform:scale(1) rotate(-10deg);
+    }
+  
+    to{
+      transform:scale(1.2) rotate(10deg);
+    }
+  }
+  
+  @keyframes fly{
+  
+    0%{
+      transform:
+      translate(-10vw,100vh);
+    }
+  
+    50%{
+      transform:
+      translate(60vw,40vh);
+    }
+  
+    100%{
+      transform:
+      translate(120vw,-20vh);
+    }
+  }
