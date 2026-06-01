@@ -512,3 +512,62 @@
       translate(120vw,-20vh);
     }
   }
+  .messageSection{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px;
+  }
+  
+  .messageCard{
+  
+    width:100%;
+    max-width:1200px;
+  
+    padding:60px;
+  
+    border-radius:40px;
+  
+    background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.05)
+    );
+  
+    backdrop-filter:blur(15px);
+  
+    border:1px solid rgba(255,255,255,0.15);
+  
+    box-shadow:
+    0 0 30px rgba(255,0,128,.3),
+    0 0 80px rgba(255,0,128,.15);
+  
+    text-align:center;
+  }
+  
+  .messageCard h2{
+  
+    font-size:50px;
+  
+    margin-bottom:30px;
+  
+    color:white;
+  
+    text-shadow:
+    0 0 15px #ff0080,
+    0 0 40px #ff4da6;
+  }
+  
+  .messageCard p{
+  
+    font-size:24px;
+  
+    line-height:2;
+  
+    max-width:1000px;
+  
+    margin:auto;
+  }
+  
